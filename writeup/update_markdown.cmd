@@ -13,7 +13,7 @@ REM Runs the command to update the markdown
 pandoc writeup.docx ^
     --standalone ^
     --extract-media . ^
-    --to gfm+smart ^
+    --to gfm-smart ^
     --wrap=none ^
     --reference-links ^
     -o writeup.md

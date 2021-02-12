@@ -7,5 +7,5 @@ The main project writeup document is [`writeup.docx`](./writeup/writeup.docx) wh
 The markdown file is generated using [Pandoc](https://pandoc.org/) in [`update_markdown.cmd`](./writeup/update_markdown.cmd) with the following command:
 
 ```shell
-pandoc writeup.docx --standalone --extract-media . --to gfm+smart --wrap=none --reference-links -o writeup.md
+pandoc writeup.docx --standalone --extract-media . --to gfm-smart --wrap=none --reference-links -o writeup.md
 ```
