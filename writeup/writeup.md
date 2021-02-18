@@ -16,9 +16,11 @@
 
 [1.2.1 Existing program – Discord 4][]
 
-[1.2.2 Interview questions 5][]
+[1.2.2 Existing solution – Internet Relay Chat (IRC) 5][]
 
-[1.2.3 Interview 5][]
+[1.2.3 Interview questions 5][]
+
+[1.2.4 Interview 5][]
 
 [1.3 Requirements 5][]
 
@@ -27,6 +29,14 @@
 [1.3.2 Stakeholder requirements 5][]
 
 [1.4 Success Criteria 5][]
+
+[2 Design 5][]
+
+[3 Development 5][]
+
+[4 Evaluation 5][]
+
+[5 Bibliography 6][]
 
 # Analysis
 
@@ -72,19 +82,25 @@ This set of small problems will allow me to possibly use test harnesses during d
 
 **Overview:**
 
-Discord is a free instant messaging and VoIP platform centred around creating guilds: a collection of chat rooms and voice channels. Users can communicate via text, voice, and video. Each guild is divided into multiple channels which are either text channels or voice channels. In the text channels, you can also send files, links, and text with basic mark-up. In voice channels, you can also use webcams and stream your desktop.
+Discord is a free instant messaging and VoIP platform created in 2015 centred around enabling communities to connect through guilds: collections of chat rooms and voice channels. In 2019 the platform saw 250 million users with a total of 25 billion messages being sent per month \[1\] making it one of the largest gaming-focused communications platforms available.
+
+<img src="media\image2.png" style="width:6.25417in;height:2.90764in" />
+
+**Features:**
+
+Each guild is managed by users with varying levels of permissions which can be as general or customised as desired by the guild owner. In the text channels, you can send files, links, and text with basic mark-up. In voice channels, as well as streaming audio you can also use webcams and stream your desktop. The purpose and scope of a guild very flexible as there is no predefined structure: they can be created for a small group of friends or as large official game hubs.
 
 **Differences:**
 
 Discord is not a privacy-focused platform and users are expected to forfeit their privacy in exchange for ease of use and versatility. Discord uses the encryption in-transit system meaning that all traffic is decrypted on the server-side; for non-audio/video data, the HTTPS protocol is used which is encrypted using TLS or SSL. It is also known that Discord inspects all user traffic whilst it passes through their server. However, the reason why is unknown.
 
-<img src="media\image2.png" style="width:6.25417in;height:2.90764in" />
-
 **Parts I can apply to my solution:**
 
-The idea of having a central area consisting of multiple ‘channels’ for different conversations or topics would potentially be worth including in my solution. This is because it would be an intuitive structure for larger chat rooms, where having a singular area for everyone to talk in would not be feasible.
+1.  The idea of having a central area consisting of multiple ‘channels’ for different conversations or topics would potentially be worth including in my solution. This is because it would be an intuitive structure for larger chat rooms, where having a singular area for everyone to talk in would not be feasible.
 
-I also think that Discord’s feature of activity statuses for each user would be a good addition to my solution. This would not be an essential feature but would improve the overall experience of the user by enabling them to see who is also online while they are using the program
+2.  I also think that Discord’s feature of activity statuses for each user would be a good addition to my solution. This would not be an essential feature but, if I have enough time to add it, it will improve the overall experience of the user by enabling them to see who is also online while they are using the program.
+
+### Existing solution – Internet Relay Chat (IRC)
 
 ### Interview questions
 
@@ -98,6 +114,20 @@ I also think that Discord’s feature of activity statuses for each user would b
 
 ## Success Criteria
 
+# Design
+
+# Development
+
+# Evaluation
+
+# Bibliography
+
+|     |     |
+|-----|-----|
+|     |     |
+
+\[1\] C. Corberly, “Discord has surpassed 250 million registered users,” TechSpot, 13 May 2019. \[Online\]. Available: https://www.techspot.com/news/80064-discord-has-surpassed-250-million-registered-users.html. \[Accessed 12 February 2021\].
+
   [1 Analysis 2]: #analysis
   [1.1 Problem Identification 2]: #problem-identification
   [1.1.1 Problem outline 2]: #problem-outline
@@ -106,9 +136,14 @@ I also think that Discord’s feature of activity statuses for each user would b
   [1.1.4 Computational methods that the solution lends itself to 2]: #computational-methods-that-the-solution-lends-itself-to
   [1.2 Research 4]: #research
   [1.2.1 Existing program – Discord 4]: #existing-program-discord
-  [1.2.2 Interview questions 5]: #interview-questions
-  [1.2.3 Interview 5]: #interview
+  [1.2.2 Existing solution – Internet Relay Chat (IRC) 5]: #existing-solution-internet-relay-chat-irc
+  [1.2.3 Interview questions 5]: #interview-questions
+  [1.2.4 Interview 5]: #interview
   [1.3 Requirements 5]: #requirements
   [1.3.1 Software requirements 5]: #software-requirements
   [1.3.2 Stakeholder requirements 5]: #stakeholder-requirements
   [1.4 Success Criteria 5]: #success-criteria
+  [2 Design 5]: #design
+  [3 Development 5]: #development
+  [4 Evaluation 5]: #evaluation
+  [5 Bibliography 6]: #_Toc64045679
