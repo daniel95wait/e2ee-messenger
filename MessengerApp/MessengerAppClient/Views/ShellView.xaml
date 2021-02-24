@@ -7,6 +7,45 @@
         mc:Ignorable="d"
         Title="ShellView" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <!-- Row 1 -->
+        <Button x:Name="Connect" Grid.Column="5" Grid.Row="1" Margin="5"
+                Content="Connect to server"/>
         
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3">
+            <TextBlock Text="{Binding Path=MessageOut, Mode=OneWay, StringFormat=Client: {0}}"/>
+            <TextBlock x:Name="MessageIn"
+                       Text="{Binding Path=MessageIn, Mode=OneWay, StringFormat=Server: {0}}"/>
+        </StackPanel>
+
+        <!-- Row 2 -->
+        <TextBlock x:Name="ConnectionStatus" Grid.Column="5" Grid.Row="2" Margin="5"
+                   Text="{Binding Path=ConnectionStatus, Mode=OneWay, StringFormat=Status: {0}}"/>
+
+        <!-- Row 4 -->
+        <TextBox x:Name="MessageOut" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="4" Margin="5"
+                 Text="{Binding Path=MessageOut, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Button x:Name="Send" Grid.Column="5" Grid.Row="4" Margin="5"
+                Content="Send message"/>
+
     </Grid>
 </Window>

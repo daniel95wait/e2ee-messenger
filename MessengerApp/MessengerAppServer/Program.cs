@@ -27,8 +27,8 @@ namespace MessengerAppServer
         {
             Console.WriteLine("Starting server...");
 
-            // Tells the socket where to listen
-            serverSocket.Bind(new IPEndPoint(IPAddress.Any, PORT));
+            // Tells the socket where to listen (connects to )
+            serverSocket.Bind(new IPEndPoint(IPAddress.Loopback, PORT));
 
             // Starts listening
             serverSocket.Listen(BACKLOG_MAX);
@@ -90,7 +90,7 @@ namespace MessengerAppServer
             // Copies only the part of buffer that holds received message to data
             Array.Copy(buffer, data, received);
 
-            // Bytes to Unicode String
+            // Unicode Bytes to String
             string text = Encoding.Unicode.GetString(data);
 
             Console.WriteLine(socket.RemoteEndPoint.ToString() + " says " + text);
@@ -110,6 +110,8 @@ namespace MessengerAppServer
 
             // Sends message back
             socket.Send(data, data.Length, SocketFlags.None);
+
+            Console.WriteLine("Sending \"" + message + "\" to " + socket.RemoteEndPoint.ToString());
         }
 
     }
