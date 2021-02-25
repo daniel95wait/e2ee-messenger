@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MessengerAppClient.Views"
         mc:Ignorable="d"
-        Title="ShellView" Height="450" Width="800">
+        Title="MessengerApp Client" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -20,31 +20,36 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <!-- Row 1 -->
-        <Button x:Name="Connect" Grid.Column="5" Grid.Row="1" Margin="5"
-                Content="Connect to server"/>
-        
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3">
-            <TextBlock Text="{Binding Path=MessageOut, Mode=OneWay, StringFormat=Client: {0}}"/>
-            <TextBlock x:Name="MessageIn"
-                       Text="{Binding Path=MessageIn, Mode=OneWay, StringFormat=Server: {0}}"/>
-        </StackPanel>
+        <Button x:Name="Reconnect" Grid.Column="5" Grid.Row="1" Margin="5"
+                Content="Reconnect to server"/>
 
-        <!-- Row 2 -->
-        <TextBlock x:Name="ConnectionStatus" Grid.Column="5" Grid.Row="2" Margin="5"
-                   Text="{Binding Path=ConnectionStatus, Mode=OneWay, StringFormat=Status: {0}}"/>
+        <ScrollViewer  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4"
+            VerticalScrollBarVisibility="Visible" Margin="5">
+            <StackPanel>
+                <TextBlock x:Name="Recieved" Text="{Binding Path=Recieved, Mode=OneWay, StringFormat=Server: {0}}"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Row 2-->
+        <Button x:Name="Disconnect" Grid.Column="5" Grid.Row="2" Margin="5"
+                Content="Disconnect from server"/>
+
+        <!-- Row 3 -->
+        <TextBlock x:Name="ConnectionStatus" Grid.Column="5" Grid.Row="3" Margin="5"
+                   Text="{Binding Path=ConnectionStatus, Mode=OneWay}" TextAlignment="Center"/>
 
         <!-- Row 4 -->
-        <TextBox x:Name="MessageOut" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="4" Margin="5"
-                 Text="{Binding Path=MessageOut, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="MessageToSend" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="4" Margin="5"
+                 Text="{Binding Path=MessageToSend, UpdateSourceTrigger=PropertyChanged}"/>
         
-        <Button x:Name="Send" Grid.Column="5" Grid.Row="4" Margin="5"
+        <Button x:Name="Send" Grid.Column="5" Grid.Row="5" Margin="5"
                 Content="Send message"/>
 
     </Grid>
