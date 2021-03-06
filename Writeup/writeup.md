@@ -6,37 +6,41 @@
 
 [1.1.1 Problem outline 2][]
 
-[1.1.2 Stakeholders 2][]
+[1.1.2 How can the problem be solved by computational methods? 2][]
 
-[1.1.3 How can the problem be solved by computational methods? 2][]
+[1.1.3 Computational methods that the solution lends itself to 2][]
 
-[1.1.4 Computational methods that the solution lends itself to 2][]
+[1.2 Stakeholder Survey 3][]
 
-[1.2 Research 4][]
+[1.2.1 Stakeholders 3][]
 
-[1.2.1 Existing program – Discord 4][]
+[1.2.2 Questions and methodology 4][]
 
-[1.2.2 Existing solution – Internet Relay Chat (IRC) 5][]
+[1.2.3 Results analysis 5][]
 
-[1.2.3 Interview questions 7][]
+[1.2.4 Conclusion 5][]
 
-[1.2.4 Interview 7][]
+[1.3 Research 5][]
 
-[1.3 Requirements 7][]
+[1.3.1 Existing program – Discord 5][]
 
-[1.3.1 Software requirements 7][]
+[1.3.2 Existing solution – Internet Relay Chat (IRC) 6][]
 
-[1.3.2 Stakeholder requirements 7][]
+[1.4 Requirements 8][]
 
-[1.4 Success Criteria 7][]
+[1.4.1 Software requirements 8][]
 
-[2 Design 7][]
+[1.4.2 Stakeholder requirements 8][]
 
-[3 Development 7][]
+[1.5 Success Criteria 8][]
 
-[4 Evaluation 7][]
+[2 Design 8][]
 
-[5 References 8][]
+[3 Development 8][]
+
+[4 Evaluation 8][]
+
+[5 References 9][]
 
 # Analysis
 
@@ -47,12 +51,6 @@
 Currently, the encryption in-transit system is widely used in instant messaging apps. This means that a user’s messages will be in plaintext in the service provider’s server, which allows the service provider to read users’ conversations breaching their privacy. These companies are then also susceptible to potential attackers accessing confidential information through this potential backdoor. Therefore, I will be making a solution to this problem of user privacy by making an end-to-end encrypted instant messaging program.
 
 For this solution to work, the following features are required: only the endpoint users have the key for the symmetric encryption algorithm to qualify the system as end-to-end encryption; an easy-to-use GUI so that anyone can navigate and use the program; a login/sign-up system to authenticate users’ identities to the server to facilitate historic message viewing; networking capabilities in order send and receive messages from different networks with a low enough latency to be a viable ‘instant’ messaging platform.
-
-### Stakeholders
-
-The target audience of this program is split into two categories. Firstly, there will be privacy-conscious stakeholders who are choosing their instant messaging platform based on the security that the program provides to their information. The requirements for these stakeholders will be the following: all the communications on the program will be encrypted; the only parties that can view the plaintext messages are the endpoint users; all sensitive passwords stored on the server will be hashed. These stakeholders will make use of the program through business, gaming, or everyday communications to name a few use cases as all the needs are satisfied as part of the program’s essential features.
-
-Secondly, there will be stakeholders who are people less familiar with computers that are looking for an easily accessible instant messaging platform. The requirements for these users will be an intuitive user interface with little to no prior setup needed for them to start using the program. They will make use of the program to keep in touch will family and friends; therefore, the program must be easy to use as to not deter them.
 
 ### How can the problem be solved by computational methods?
 
@@ -76,13 +74,51 @@ This set of small problems will allow me to possibly use test harnesses during d
 
 **Performance modelling** – I will make heavy use of performance modelling to ensure that the program functions efficiently. On the smaller scale, I will use performance modelling to profile my encryption algorithms to make sure that they properly balance processing time and security since for this application an algorithm that sufficiently encrypted data in a few milliseconds is vastly superior to an algorithm that more complexly encrypts data in a few minutes. On a larger scale, I will use performance modelling to ensure that my server-side program has properly utilised threads to have a suitable bandwidth to support both average and peak throughput.
 
+## Stakeholders
+
+### Identification
+
+The target audience of this program is split into two categories. Firstly, there will be privacy-conscious stakeholders who are choosing their instant messaging platform based on the security that the program provides to their information. The requirements for these stakeholders will be the following: all the communications on the program will be encrypted; the only parties that can view the plaintext messages are the endpoint users; all sensitive passwords stored on the server will be hashed. These stakeholders will make use of the program through business, gaming, or everyday communications to name a few use cases as all the needs are satisfied as part of the program’s essential features.
+
+Secondly, there will be stakeholders who are people less familiar with computers that are looking for an easily accessible instant messaging platform. The requirements for these users will be an intuitive user interface with little to no prior setup needed for them to start using the program. They will make use of the program to keep in touch will family and friends; therefore, the program must be easy to use as to not deter them.
+
+### Questions and methodology
+
+To help me better understand the requirements of the stakeholders, I have created a survey to send to them (since in-person interviews are not possible at this time).
+
+My first aim for this survey is to investigate the stakeholders’ current use patterns with messaging apps as I believe that this will give me a good insight into standards and expectations. This is especially relevant for my stakeholders whose needs involve an easy-to-use platform as I will research some of the most used platforms and see what makes their user interface so accessible.
+
+Secondly, I wanted to hear the stakeholders’ opinions on some common features of messaging apps. This information from the stakeholders will be crucial as I will use it to inform my decision of whether a feature is worth including in my final solution.
+
+<img src="media\image2.png" style="width:6.19519in;height:0.50069in" />
+
+<img src="media\image3.png" style="width:6.19514in;height:0.38403in" />
+
+<img src="media\image4.png" style="width:6.19514in;height:0.43958in" />
+
+<img src="media\image5.png" style="width:6.19514in;height:0.41389in" />
+
+<img src="media\image6.png" style="width:6.19514in;height:0.4875in" />
+
+<img src="media\image7.png" style="width:6.19514in;height:0.6875in" />
+
+<img src="media\image8.png" style="width:6.19514in;height:0.64028in" />
+
+<img src="media\image9.png" style="width:6.19514in;height:0.42222in" />
+
+<img src="media\image10.png" style="width:6.19685in;height:0.76276in" />
+
+### Results analysis
+
+### Conclusion
+
 ## Research
 
 ### Existing program – Discord
 
 Discord is a free instant messaging and VoIP platform created in 2015 centred around enabling communities to connect through guilds: collections of chat rooms and voice channels. In 2019 the platform saw 250 million users with a total of 25 billion messages being sent per month \[1\] making it one of the largest gaming-focused communications platforms available.
 
-<img src="media\image2.png" style="width:6.25417in;height:2.90764in" />
+<img src="media\image11.png" style="width:6.25417in;height:2.90764in" />
 
 **Features:**
 
@@ -102,7 +138,7 @@ Discord is not a privacy-focused platform and users are expected to forfeit thei
 
 Internet Relay Chat is an internet protocol created in 1988 to allow group plaintext conversations with channels working on a client-server model or to individuals with private messages using the Direct Client-to-Client protocol (DCC). In February 2005, at the height of IRC the largest network – QuakeNet – saw a peak user count of almost a quarter of a million users \[2\]. This has dramatically reduced since then and is now at an average of 10 thousand users \[3\]. However, the protocol is still used by some services today as a means of lightweight communication typically attached to a larger service: The Twitch IRC network is responsible for the live chat in a Twitch stream and some games such as Tabletop Simulator, StarCraft, and Unreal Tournament use IRC for their in-game chat.
 
-<img src="media\image3.png" style="width:5.0199in;height:3.1106in" />
+<img src="media\image12.png" style="width:5.0199in;height:3.1106in" />
 
 *Image via [WeeChat.org][]*
 
@@ -138,10 +174,6 @@ The layout of the UI for many IRC clients is the following: channels on the left
 
 In my solution, I will also try to create a lightweight protocol that only requires a single socket as it is a requirement for my solution to create a lightweight program. I also think that sticking to the tried and tested chat program layout shown in many IRC clients will be a good inclusion into my program; since it will make using the program a lot easier for users who have used other chat programs in the past and it seems like an intuitive design for new users.
 
-### Interview questions
-
-### Interview
-
 ## Requirements
 
 ### Software requirements
@@ -170,20 +202,22 @@ In my solution, I will also try to create a lightweight protocol that only requi
   [1 Analysis 2]: #analysis
   [1.1 Problem Identification 2]: #problem-identification
   [1.1.1 Problem outline 2]: #problem-outline
-  [1.1.2 Stakeholders 2]: #stakeholders
-  [1.1.3 How can the problem be solved by computational methods? 2]: #how-can-the-problem-be-solved-by-computational-methods
-  [1.1.4 Computational methods that the solution lends itself to 2]: #computational-methods-that-the-solution-lends-itself-to
-  [1.2 Research 4]: #research
-  [1.2.1 Existing program – Discord 4]: #existing-program-discord
-  [1.2.2 Existing solution – Internet Relay Chat (IRC) 5]: #existing-solution-internet-relay-chat-irc
-  [1.2.3 Interview questions 7]: #interview-questions
-  [1.2.4 Interview 7]: #interview
-  [1.3 Requirements 7]: #requirements
-  [1.3.1 Software requirements 7]: #software-requirements
-  [1.3.2 Stakeholder requirements 7]: #stakeholder-requirements
-  [1.4 Success Criteria 7]: #success-criteria
-  [2 Design 7]: #design
-  [3 Development 7]: #development
-  [4 Evaluation 7]: #evaluation
-  [5 References 8]: #_Toc65567677
+  [1.1.2 How can the problem be solved by computational methods? 2]: #how-can-the-problem-be-solved-by-computational-methods
+  [1.1.3 Computational methods that the solution lends itself to 2]: #computational-methods-that-the-solution-lends-itself-to
+  [1.2 Stakeholder Survey 3]: #stakeholders
+  [1.2.1 Stakeholders 3]: #_Toc65940219
+  [1.2.2 Questions and methodology 4]: #questions-and-methodology
+  [1.2.3 Results analysis 5]: #results-analysis
+  [1.2.4 Conclusion 5]: #conclusion
+  [1.3 Research 5]: #research
+  [1.3.1 Existing program – Discord 5]: #existing-program-discord
+  [1.3.2 Existing solution – Internet Relay Chat (IRC) 6]: #existing-solution-internet-relay-chat-irc
+  [1.4 Requirements 8]: #requirements
+  [1.4.1 Software requirements 8]: #software-requirements
+  [1.4.2 Stakeholder requirements 8]: #stakeholder-requirements
+  [1.5 Success Criteria 8]: #success-criteria
+  [2 Design 8]: #design
+  [3 Development 8]: #development
+  [4 Evaluation 8]: #evaluation
+  [5 References 9]: #_Toc65940233
   [WeeChat.org]: https://weechat.org/about/screenshots/
