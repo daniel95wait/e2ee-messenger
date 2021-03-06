@@ -7,12 +7,12 @@ namespace MessengerAppShared.Models
     public class NetworkSocket
     {
         // Constants
-        public const int PORT = 31416;
-        public const int BACKLOG = 10;
-        public const int BUFFER_SIZE = 2048;
+        public static readonly int PORT = 31416;
+        public static readonly int BACKLOG = 10;
+        public static readonly int BUFFER_SIZE = 2048;
 
         // Fields
-        public static Socket Socket;
+        public Socket Socket;
 
         // Properties
         public IPAddress Address { get; set; } = IPAddress.Loopback;
@@ -34,7 +34,7 @@ namespace MessengerAppShared.Models
         }
 
         // Connects to network
-        public void Connect()
+        public void ConnectToServer()
         {
             // When socket is already conneted
             if (Connected) { return; }
@@ -43,7 +43,6 @@ namespace MessengerAppShared.Models
 
             // For counting connection attemps
             int attempts = 0;
-
             // Repeat while socket is not connected for a max of 3 times
             while (!Socket.Connected && attempts <= 3)
             {
@@ -59,7 +58,7 @@ namespace MessengerAppShared.Models
         }
 
         // Disconnects from network
-        public void Disconnect()
+        public void DisconnectFromServer()
         {
             if (Socket != null)
             {
@@ -70,19 +69,19 @@ namespace MessengerAppShared.Models
         }
 
         // Sends message to server
-        public void SendSync(string text)
+        public void SendSync(Socket socketReciever, string text)
         {
             // When socket hasnt been created / is destroyed
-            if (Socket == null) { return; }
+            if (socketReciever == null) { Console.WriteLine("Null socket"); return; }
 
             // Creates transmission object
             Transmission message;
-            try { message = new Transmission(text); }
-            catch (ArgumentNullException) { return; }
+            try { message = new Transmission(text); Console.WriteLine("Message created"); }
+            catch (ArgumentNullException) { Console.WriteLine("Invalid message"); return; }
 
             // Sends the byte array
-            try { Socket.Send(message.Data, 0, message.Data.Length, SocketFlags.None); }
-            catch (SocketException) { return; }
+            try { socketReciever.Send(message.Data, message.Data.Length, SocketFlags.None); Console.WriteLine("Message sent"); }
+            catch (SocketException e) { Console.WriteLine("Socket error " + e.ErrorCode.ToString()); return; }
         }
 
         // Receive message from server

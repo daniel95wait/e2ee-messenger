@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\NetworkSocket.cs" />
-    <Compile Include="Models\Transmission.cs" />
+    <Compile Include="NetworkConstants.cs" />
+    <Compile Include="NetworkSocket.cs" />
+    <Compile Include="Transmission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

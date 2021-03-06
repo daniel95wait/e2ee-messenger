@@ -27,13 +27,13 @@
         </Grid.RowDefinitions>
 
         <!-- Row 1 -->
-        <Button x:Name="Reconnect" Grid.Column="5" Grid.Row="1" Margin="5"
-                Content="Reconnect to server"/>
+        <Button x:Name="Connect" Grid.Column="5" Grid.Row="1" Margin="5"
+                Content="Connect to server"/>
 
         <ScrollViewer  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4"
             VerticalScrollBarVisibility="Visible" Margin="5">
             <StackPanel>
-                <TextBlock x:Name="Recieved" Text="{Binding Path=Recieved, Mode=OneWay, StringFormat=Server: {0}}"/>
+                <TextBlock Text="{Binding Path=MessageRecieved, Mode=OneWay, StringFormat=Server: {0}}"/>
             </StackPanel>
         </ScrollViewer>
 
@@ -42,11 +42,11 @@
                 Content="Disconnect from server"/>
 
         <!-- Row 3 -->
-        <TextBlock x:Name="ConnectionStatus" Grid.Column="5" Grid.Row="3" Margin="5"
+        <TextBlock Grid.Column="5" Grid.Row="3" Margin="5"
                    Text="{Binding Path=ConnectionStatus, Mode=OneWay}" TextAlignment="Center"/>
 
         <!-- Row 4 -->
-        <TextBox x:Name="MessageToSend" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="4" Margin="5"
+        <TextBox Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="4" Margin="5"
                  Text="{Binding Path=MessageToSend, UpdateSourceTrigger=PropertyChanged}"/>
         
         <Button x:Name="Send" Grid.Column="5" Grid.Row="5" Margin="5"
