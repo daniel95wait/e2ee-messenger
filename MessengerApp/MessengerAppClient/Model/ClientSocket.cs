@@ -11,23 +11,14 @@ namespace MessengerAppClient.Model
     {
         public void Connect()
         {
-            // TODO: Connect socket to server
+            Socket.Connect(EndPoint);
         }
 
-        public void Send()
-        {
-            // TODO: Send message to server
-        }
-
-        public void Receive()
-        {
-            // TODO: Receive message from server
-        }
+        // TODO: Receive message from server
 
         public override void ReceiveCallback(IAsyncResult asyncResult)
         {
             // TODO: Implement ReceiveCallback
-
             throw new NotImplementedException();
         }
     }

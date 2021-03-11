@@ -12,8 +12,7 @@ namespace MessengerAppServer
             serverSocket.Start();
 
             // TODO: Fix pos of cursor after enter for pretty console output
-            //Console.ReadLine();
-            //Console.SetCursorPosition(0, Console.CursorTop - 1);
+            Console.ReadLine();
 
             // User presses enter to close the server
             serverSocket.Stop();

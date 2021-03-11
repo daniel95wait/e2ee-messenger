@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -31,12 +32,12 @@ namespace MessengerAppShared
         public abstract void ReceiveCallback(IAsyncResult asyncResult);
 
         // Starts send of string to socket
-        public void Send(Socket socket, string text)
+        public void Send(string text)
         {
             // Converts string to bytes
             byte[] data = new Protocol(text).Data;
             // Sends the message, callback called when finished
-            socket.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback(SendCallback), socket);
+            Socket.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback(SendCallback), Socket);
         }
 
         // Ends send of string to socket

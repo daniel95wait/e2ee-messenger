@@ -76,6 +76,7 @@ namespace MessengerAppServer
             PrintMessage($"Client {clientSocket.RemoteEndPoint} says \"{text}\"");
 
             // Loops back to start
+            // TODO: Error after client disconnects; use try catch to check connection
             Receive(clientSocket);
         }
 
