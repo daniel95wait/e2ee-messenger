@@ -25,7 +25,7 @@
                 BorderBrush="LightGray" BorderThickness="2">
             <ScrollViewer VerticalScrollBarVisibility="Visible">
                 <StackPanel>
-                    <TextBlock Text=""/>
+                    <TextBlock x:Name="MessageReceived" Text=""/>
                 </StackPanel>
             </ScrollViewer>
         </Border>

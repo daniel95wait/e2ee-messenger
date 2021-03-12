@@ -74,6 +74,8 @@ namespace MessengerAppServer
             string text = new Protocol(dataBuffer).Text;
 
             PrintMessage($"Client {clientSocket.RemoteEndPoint} says \"{text}\"");
+            Send(text, clientSocket);
+            PrintMessage($"Client {clientSocket.RemoteEndPoint} is being sent \"{text}\"");
 
             // Loops back to start
             // TODO: Error after client disconnects; use try catch to check connection

@@ -20,6 +20,13 @@ namespace MessengerAppClient.ViewModels
             set { _messageToSend = value; }
         }
 
+        private string _messageReceived;
+        public string MessageReceived
+        {
+            get { return _messageReceived; }
+            set { _messageReceived = value; }
+        }
+
         public ShellViewModel()
         {
             // TODO: Wire-up buttons
@@ -29,11 +36,23 @@ namespace MessengerAppClient.ViewModels
         public void Connect()
         {
             socket.Connect();
+
+            // TODO: Begins a loop to receive
         }
 
         public void SendMessage()
         {
-            socket.Send(MessageToSend);
+            socket.Send(MessageToSend, socket.Socket);
+            socket.Receive(socket.Socket);
+
+            // Display the received message
+            // TODO: Wait for ReceiveCallback return before running this
+            if (socket.ReceiveMessages.Count != 0)
+            {
+                MessageReceived = socket.ReceiveMessages[socket.ReceiveMessages.Count - 1];
+                NotifyOfPropertyChange(() => MessageReceived);
+            }
+
         }
     }
 }

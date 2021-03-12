@@ -12,7 +12,7 @@ namespace MessengerAppShared
         public IPEndPoint EndPoint;
         public Socket Socket;
 
-        public byte[] Buffer = new byte[1024];
+        public byte[] Buffer = new byte[2048];
 
         // Constructor asigns endpoint and creates socket
         public SocketBase(int port = 31416)
@@ -24,20 +24,26 @@ namespace MessengerAppShared
         // Starts receive from socket
         public void Receive(Socket socket)
         {
-            // Starts listening for data from client
+            // Starts listening for data
             socket.BeginReceive(Buffer, 0, Buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), socket);
         }
+
+        //public void Receive(SocketBase socketObject)
+        //{
+        //    // Starts listening for data
+        //    socketObject.Socket.BeginReceive(Buffer, 0, Buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), socketObject);
+        //}
 
         // Ends receive from socket (child forced to override)
         public abstract void ReceiveCallback(IAsyncResult asyncResult);
 
         // Starts send of string to socket
-        public void Send(string text)
+        public void Send(string text, Socket socket)
         {
             // Converts string to bytes
             byte[] data = new Protocol(text).Data;
             // Sends the message, callback called when finished
-            Socket.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback(SendCallback), Socket);
+            socket.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback(SendCallback), socket);
         }
 
         // Ends send of string to socket
